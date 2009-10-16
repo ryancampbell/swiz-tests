@@ -1,0 +1,6 @@
+Swiz Unit TestRunner
+
+This is a Flash Builder beta 2 project.
+
+Setup
+Define a linked resource called SWIZ_SWC pointing to the Swiz swc you want to test.

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<s:WindowedApplication xmlns:fx="http://ns.adobe.com/mxml/2009" xmlns:s="library://ns.adobe.com/flex/spark"
+					   xmlns:mx="library://ns.adobe.com/flex/halo" applicationComplete="applicationCompleteHandler(event)"
+					   xmlns:flexUnitUIRunner="http://www.adobe.com/2009/flexUnitUIRunner">
+
+	<fx:Script>
+		<![CDATA[
+			import mx.events.FlexEvent;
+			import mx.logging.LogEventLevel;
+			
+			import org.flexunit.listeners.UIListener;
+			import org.flexunit.runner.FlexUnitCore;
+			import org.swizframework.tests.autowire.AutowireTestSuite;
+			import org.swizframework.tests.beans.ModelBean;
+			import org.swizframework.tests.command.CommandTestSuite;
+			
+			private var core:FlexUnitCore;
+			
+			[Autowire]
+			public var modelBean:ModelBean;
+			
+			private function applicationCompleteHandler( event : FlexEvent ) : void {
+				core = new FlexUnitCore();
+				core.addListener( new UIListener( uiListener ) );
+				core.run( AutowireTestSuite, CommandTestSuite );
+				move( 50, 50 );
+			}
+		]]>
+	</fx:Script>
+
+	<fx:Declarations>
+		<swiz:SwizConfig xmlns:swiz="http://swiz.swizframework.org" eventPackages="org.swizframework.tests.event" viewPackages="org.swizframework"
+						 beanLoaders="{[Beans]}" logEventLevel="{LogEventLevel.DEBUG}" />
+
+		<mx:TraceTarget fieldSeparator="->" includeCategory="true" includeTime="true" includeLevel="true" />
+	</fx:Declarations>
+
+	<flexUnitUIRunner:TestRunnerBase id="uiListener" width="100%" height="100%" />
+
+</s:WindowedApplication>

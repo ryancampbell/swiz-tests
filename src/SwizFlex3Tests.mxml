@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<mx:Application
+	xmlns:mx="http://www.adobe.com/2006/mxml"
+	xmlns:flexUnitUIRunner="http://www.adobe.com/2009/flexUnitUIRunner"
+	styleName="flexUnitApplication"
+	creationComplete="runTests()" xmlns:swiz="http://swiz.swizframework.org">
+	
+	<mx:Metadata>
+		[SWF( backgroundColor="#63861D" )]
+	</mx:Metadata>
+	
+	<mx:Script>
+		<![CDATA[
+			import org.swizframework.tests.autowire.AutowireTestSuite;
+			import org.flexunit.listeners.UIListener;
+			import org.flexunit.runner.FlexUnitCore;
+			
+			protected function runTests():void
+			{
+				var core:FlexUnitCore = new FlexUnitCore();
+				core.addListener( new UIListener( uiListener ) );
+				core.run( AutowireTestSuite );
+			}
+			
+		]]>
+	</mx:Script>
+	
+	<mx:Style>
+		Application
+		{
+			backgroundColor: #52750C;
+			backgroundGradientColors: #B4C86E, #52750C;
+			backgroundGradientAlphas: 1, 1;
+			themeColor: #FFFFFF;
+			color: #444444;
+			fontFamily: "Myriad Pro Semibold";
+			fontSize: 12;
+		}
+	</mx:Style>
+	
+	<flexUnitUIRunner:TestRunnerBase id="uiListener" width="100%" height="100%" />
+	
+</mx:Application>

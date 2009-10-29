@@ -75,5 +75,21 @@ package org.swizframework.reflection
 			Assert.assertNotNull( td.getMetadataTagsForMember( "bindableAccessor" ) );
 			Assert.assertEquals( 2, td.getMetadataTagsForMember( "bindableAccessor" ).length );
 		}
+		
+		[Test]
+		public function metadataArgsStoredAndRetrievedCorrectly():void
+		{
+			td.fromXML( describeType( new SampleBean() ) );
+			
+			var tag:MetadataTag = MetadataTag( td.getMetadataTagsForMember( "autowireBeanPropertyVariable" )[ 0 ] );
+			var arg1:MetadataArg = tag.args[ 0 ];
+			var arg2:MetadataArg = tag.args[ 1 ];
+			
+			Assert.assertEquals( 2, tag.args.length );
+			Assert.assertEquals( "bean", arg1.key );
+			Assert.assertEquals( "beanId", arg1.value );
+			Assert.assertEquals( "property", arg2.key );
+			Assert.assertEquals( "beanPropertyName", arg2.value );
+		}
 	}
 }

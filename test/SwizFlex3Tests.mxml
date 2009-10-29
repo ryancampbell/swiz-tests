@@ -3,7 +3,7 @@
 	xmlns:mx="http://www.adobe.com/2006/mxml"
 	xmlns:flexUnitUIRunner="http://www.adobe.com/2009/flexUnitUIRunner"
 	styleName="flexUnitApplication"
-	creationComplete="runTests()" xmlns:swiz="http://swiz.swizframework.org">
+	creationComplete="runTests()">
 	
 	<mx:Metadata>
 		[SWF( backgroundColor="#63861D" )]
@@ -11,7 +11,7 @@
 	
 	<mx:Script>
 		<![CDATA[
-			import org.swizframework.tests.autowire.AutowireTestSuite;
+			import org.swizframework.reflection.ReflectionTestSuite;
 			import org.flexunit.listeners.UIListener;
 			import org.flexunit.runner.FlexUnitCore;
 			
@@ -19,7 +19,7 @@
 			{
 				var core:FlexUnitCore = new FlexUnitCore();
 				core.addListener( new UIListener( uiListener ) );
-				core.run( AutowireTestSuite );
+				core.run( ReflectionTestSuite );
 			}
 			
 		]]>

@@ -3,7 +3,7 @@ package org.swizframework.reflection.typeDescriptorTestResources
 	import flash.events.Event;
 	import flash.events.EventDispatcher;
 	
-	public class SampleBean extends EventDispatcher
+	public final class SampleBean extends EventDispatcher
 	{
 		// ========================================
 		// public properties

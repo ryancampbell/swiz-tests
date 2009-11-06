@@ -34,7 +34,7 @@ package org.swizframework.reflection
 		// ========================================
 		
 		[Test]
-		public function classNameAndSuperClassNameGetSetCorrectly():void
+		public function classNameAndSuperClassNameAreCorrect():void
 		{
 			td.fromXML( describeType( new Sprite() ) );
 			
@@ -43,7 +43,7 @@ package org.swizframework.reflection
 		}
 		
 		[Test]
-		public function interfacesGetSetCorrectly():void
+		public function interfacesAreCorrect():void
 		{
 			td.fromXML( describeType( new Sprite() ) );
 			
@@ -53,7 +53,7 @@ package org.swizframework.reflection
 		}
 		
 		[Test]
-		public function metadataHostsStoredAndRetrievedCorrectly():void
+		public function metadataHostsAreCorrect():void
 		{
 			td.fromXML( describeType( new SampleBean() ) );
 			
@@ -66,7 +66,7 @@ package org.swizframework.reflection
 		}
 		
 		[Test]
-		public function metadataTagsStoredAndRetrievedCorrectly():void
+		public function metadataTagsAreCorrect():void
 		{
 			td.fromXML( describeType( new SampleBean() ) );
 			
@@ -77,7 +77,7 @@ package org.swizframework.reflection
 		}
 		
 		[Test]
-		public function metadataArgsStoredAndRetrievedCorrectly():void
+		public function metadataArgsAreCorrect():void
 		{
 			td.fromXML( describeType( new SampleBean() ) );
 			

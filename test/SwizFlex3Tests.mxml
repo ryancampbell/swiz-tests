@@ -11,6 +11,7 @@
 	
 	<mx:Script>
 		<![CDATA[
+			import org.swizframework.ioc.IoCTestSuite;
 			import org.swizframework.reflection.ReflectionTestSuite;
 			import org.flexunit.listeners.UIListener;
 			import org.flexunit.runner.FlexUnitCore;
@@ -20,6 +21,7 @@
 				var core:FlexUnitCore = new FlexUnitCore();
 				core.addListener( new UIListener( uiListener ) );
 				core.run( ReflectionTestSuite );
+				core.run( IoCTestSuite );
 			}
 			
 		]]>
